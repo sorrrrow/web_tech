@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+h1 {
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.student-info {
+    font-size: 16px;
+    color: #555;
+    margin: 3px 0;
+}
+
+.group-info {
+    font-size: 16px;
+    color: #555;
+}
+
+section {
+    margin-bottom: 35px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+    border-left: 4px solid #007bff;
+    padding-left: 10px;
+}
+
+.labs-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.lab-card {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 20px 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.lab-card:hover {
+    background-color: #e9ecef;
+}
+
+.lab-card h3 {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+    color: #777;
+    font-size: 13px;
+}
+
+/* Адаптивность */
+@media (max-width: 800px) {
+    .labs-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .labs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 400px) {
+    .labs-grid {
+        grid-template-columns: 1fr;
+    }
+}
