@@ -1,16 +1,5 @@
 const STORAGE_KEY = "fc_order_v1";
 
-/**
- * Храним ТОЛЬКО id блюд (или null).
- * Формат:
- * {
- *   soup: number|null,
- *   main: number|null,
- *   starter: number|null,
- *   drink: number|null,
- *   dessert: number|null
- * }
- */
 function getEmptyOrder() {
   return { soup: null, main: null, starter: null, drink: null, dessert: null };
 }

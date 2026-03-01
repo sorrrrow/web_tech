@@ -114,7 +114,6 @@ footer a:hover {
     color: tomato;
 }
 
-/* Адаптив главной (как раньше) */
 @media (max-width: 800px) {
     .site-nav {
         justify-content: space-between;

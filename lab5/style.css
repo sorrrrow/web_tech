@@ -15,7 +15,6 @@ header {
     color: #fff;
 }
 
-/* чтобы заголовок и меню были по центру как на макете */
 .header-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -115,7 +114,6 @@ footer a:hover {
     color: tomato;
 }
 
-/* ФИЛЬТРЫ */
 .filters {
     display: flex;
     gap: 20px;

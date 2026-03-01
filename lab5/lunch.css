@@ -1,4 +1,3 @@
-/* карточки блюд */
 .lunch-section h2 {
     margin: 35px 0 15px;
     font-size: 22px;
@@ -10,7 +9,6 @@
     gap: 10px;
 }
 
-/* карточка блюда */
 .dish-card {
     display: flex;
     flex-direction: column;
@@ -69,7 +67,6 @@
     color: #fff;
 }
 
-/* форма */
 .order-form-section {
     margin-top: 30px;
 }
@@ -186,7 +183,6 @@
     color: tomato;
 }
 
-/* “Ваш заказ” */
 .order-preview {
     margin-bottom: 14px;
 }
@@ -233,7 +229,6 @@
     display: none;
 }
 
-/* Подсветка выбранной карточки */
 .dish-card.is-selected {
     border: 2px solid tomato;
 }
@@ -243,7 +238,6 @@
     color: #fff;
 }
 
-/* адаптив */
 @media (max-width: 800px) {
     .dishes-grid {
         grid-template-columns: repeat(2, 1fr);

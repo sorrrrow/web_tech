@@ -1,7 +1,5 @@
-// api.js
 const API_URL = "https://edu.std-900.ist.mospolytech.ru/labs/api/dishes";
 
-// приводим категории от API к тем, что ждёт твой сайт
 function normalizeCategory(apiCategory) {
   const map = {
     "soup": "soup",
@@ -12,7 +10,7 @@ function normalizeCategory(apiCategory) {
     "dessert": "dessert",
   };
 
-  return map[apiCategory] || apiCategory; // если вдруг прилетит новое — оставим как есть
+  return map[apiCategory] || apiCategory;
 }
 
 async function loadDishes() {
@@ -25,13 +23,11 @@ async function loadDishes() {
 
     const data = await res.json();
 
-    // кладём в глобалку, как раньше было с DISHES
     window.DISHES = data.map(d => ({
       ...d,
       category: normalizeCategory(d.category),
     }));
 
-    // если фильтры ещё не объявлены — создадим
     if (!window.ACTIVE_FILTERS) {
       window.ACTIVE_FILTERS = {
         soup: null,
@@ -42,7 +38,6 @@ async function loadDishes() {
       };
     }
 
-    // рендерим всё
     if (typeof renderAll === "function") {
       renderAll(window.ACTIVE_FILTERS);
     }

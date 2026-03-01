@@ -1,4 +1,3 @@
-/* Карточки блюд (как лаб2) */
 .lunch-section h2 {
     margin: 35px 0 15px;
     font-size: 22px;
@@ -68,7 +67,6 @@
     color: #fff;
 }
 
-/* ФОРМА */
 .order-form-section {
     margin-top: 30px;
 }
@@ -188,7 +186,6 @@
     color: tomato;
 }
 
-/* Адаптив страницы "Собрать ланч" */
 @media (max-width: 800px) {
     .dishes-grid {
         grid-template-columns: repeat(2, 1fr);

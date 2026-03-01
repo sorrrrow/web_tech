@@ -1,12 +1,10 @@
-// js/order.js
-
 const STORAGE_KEY = "fc_order_v1";
 
 function getEmptyOrder() {
   return {
     soup_id: null,
     main_course_id: null,
-    salad_id: null,     // у API это salad_id, у нас категория starter
+    salad_id: null,
     drink_id: null,
     dessert_id: null,
   };
@@ -40,7 +38,6 @@ function findDishById(id) {
 }
 
 function orderToSelectedForValidate(order) {
-  // validateCombo ждёт selected.soup / selected.main / selected.starter / selected.drink / selected.dessert
   return {
     soup: order.soup_id,
     main: order.main_course_id,
@@ -60,7 +57,6 @@ function calcTotal(order) {
   return sum;
 }
 
-// ===== UI подсветка карточек (render.js вызывает это после перерендера) =====
 function updateSelectedCardsUI() {
   const order = loadOrderFromStorage();
 
@@ -79,7 +75,6 @@ function updateSelectedCardsUI() {
 
     const btn = card.querySelector(".dish-btn");
     if (btn) {
-      // на lunch — “Добавить/Удалить”, на order — всегда “Удалить” (там отдельно управляем)
       if (document.body.dataset.page === "lunch") {
         btn.textContent = isSelected ? "Удалить" : "Добавить";
       }
@@ -97,16 +92,12 @@ function updateSelectedCardsUI() {
 
 window.updateSelectedCardsUI = updateSelectedCardsUI;
 
-// ===== Восстановление выбора после загрузки блюд =====
 function restoreSelectionFromStorage() {
-  // просто перерисуем подсветку + бар
   updateSelectedCardsUI();
 }
 window.restoreSelectionFromStorage = restoreSelectionFromStorage;
 
-// ====== LUNCH PAGE: выбор блюд кликом ======
 function categoryToField(category) {
-  // категории в UI: soup, main, starter, drink, dessert
   if (category === "soup") return "soup_id";
   if (category === "main") return "main_course_id";
   if (category === "starter") return "salad_id";
@@ -133,7 +124,6 @@ function handleLunchCardClick(e) {
 
   const order = loadOrderFromStorage();
 
-  // toggle: если выбрано это же — снимаем, иначе ставим (один на категорию)
   if (Number(order[field]) === dishId) {
     order[field] = null;
   } else {
@@ -144,7 +134,6 @@ function handleLunchCardClick(e) {
   updateSelectedCardsUI();
 }
 
-// ===== Sticky bar =====
 function updateStickyBar() {
   const bar = document.getElementById("checkoutBar");
   const totalEl = document.getElementById("checkoutTotal");
@@ -201,7 +190,6 @@ function preventDisabledCheckoutClick(e) {
   }
 }
 
-// ===== ORDER PAGE: состав заказа + форма =====
 function createDishCardForOrder(dish) {
   const card = document.createElement("div");
   card.className = "dish-card";
@@ -268,10 +256,8 @@ function handleOrderPageRemove(e) {
 
   removeDishFromOrderById(dishId);
 
-  // удаляем карточку со страницы сразу
   card.remove();
 
-  // если стало пусто — покажем текст
   const order = loadOrderFromStorage();
   if (!hasAnySelected(order) || ([order.soup_id, order.main_course_id, order.salad_id, order.drink_id, order.dessert_id].filter(Boolean).length === 0)) {
     const empty = document.getElementById("orderEmptyText");
@@ -307,7 +293,6 @@ function updateOrderFormPreview() {
 
   const order = loadOrderFromStorage();
 
-  // строки слева
   setPreviewRow("soup", "pvSoupName", "pvSoupPrice", "pvSoupRow", order.soup_id, "Не выбран");
   setPreviewRow("main", "pvMainName", "pvMainPrice", "pvMainRow", order.main_course_id, "Не выбрано");
   setPreviewRow("starter", "pvStarterName", "pvStarterPrice", "pvStarterRow", order.salad_id, "Не выбран");
@@ -321,13 +306,11 @@ function updateOrderFormPreview() {
   }
 }
 
-// ===== submit order via fetch =====
 function buildOrderPayloadFromForm(form) {
   const order = loadOrderFromStorage();
   const fd = new FormData(form);
 
-  // delivery
-  const deliveryType = fd.get("delivery_type"); // now/by_time
+  const deliveryType = fd.get("delivery_type");
   const deliveryTime = fd.get("delivery_time");
 
   const payload = {
@@ -338,10 +321,9 @@ function buildOrderPayloadFromForm(form) {
     delivery_address: fd.get("delivery_address"),
     delivery_type: deliveryType,
     comment: fd.get("comment") || "",
-    drink_id: order.drink_id, // обязательное поле по ТЗ
+    drink_id: order.drink_id,
   };
 
-  // опциональные id (в зависимости от комбо)
   if (order.soup_id) payload.soup_id = order.soup_id;
   if (order.main_course_id) payload.main_course_id = order.main_course_id;
   if (order.salad_id) payload.salad_id = order.salad_id;
@@ -364,7 +346,6 @@ function isValidDeliveryTimeIfNeeded(form) {
     return { ok: false, message: "Укажите время доставки" };
   }
 
-  // проверка "не раньше текущего времени" (простая, по времени сегодня)
   const now = new Date();
   const [hh, mm] = time.split(":").map(Number);
   const chosen = new Date();
@@ -383,7 +364,6 @@ async function handleOrderSubmit(e) {
   const form = e.target;
   const order = loadOrderFromStorage();
 
-  // 1) проверка комбо
   const combo = validateCombo(orderToSelectedForValidate(order));
   if (!combo.ok) {
     if (typeof showModal === "function") showModal(combo.message);
@@ -391,7 +371,6 @@ async function handleOrderSubmit(e) {
     return;
   }
 
-  // 2) проверка времени
   const timeCheck = isValidDeliveryTimeIfNeeded(form);
   if (!timeCheck.ok) {
     if (typeof showModal === "function") showModal(timeCheck.message);
@@ -399,17 +378,15 @@ async function handleOrderSubmit(e) {
     return;
   }
 
-  // 3) собираем payload и отправляем
   const payload = buildOrderPayloadFromForm(form);
 
   try {
     if (typeof apiCreateOrder !== "function") {
-      throw new Error("apiCreateOrder не подключен. Проверь подключение js/api.js");
+      throw new Error("apiCreateOrder не подключен.");
     }
 
     await apiCreateOrder(payload);
 
-    // ✅ успех: чистим localStorage
     clearOrderStorage();
 
     if (typeof showModal === "function") {
@@ -418,7 +395,6 @@ async function handleOrderSubmit(e) {
       alert("Заказ успешно оформлен! 🎉");
     }
 
-    // обновим страницу/контент
     renderOrderComposition();
     updateOrderFormPreview();
     form.reset();
@@ -426,11 +402,9 @@ async function handleOrderSubmit(e) {
   } catch (err) {
     console.error("Order submit failed:", err);
     alert(`Ошибка оформления заказа: ${err.message}`);
-    // ❗ при ошибке localStorage НЕ чистим (по ТЗ)
   }
 }
 
-// ===== init =====
 document.addEventListener("DOMContentLoaded", () => {
   if (document.body.dataset.page === "lunch") {
     document.addEventListener("click", handleLunchCardClick);

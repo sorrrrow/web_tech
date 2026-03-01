@@ -62,7 +62,6 @@
   font-size: 12px;
 }
 
-/* ===== Toast ===== */
 .toast-root {
   position: fixed;
   right: 18px;
@@ -86,7 +85,6 @@
 .toast.success { background: #2a5d3e; }
 .toast.error { background: tomato; }
 
-/* ===== Modal (ЛР9) ===== */
 .modal-overlay-9 {
   position: fixed;
   inset: 0;

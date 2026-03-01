@@ -5,7 +5,7 @@ function sortByName(a, b) {
 function createDishCard(dish) {
   const card = document.createElement("div");
   card.className = "dish-card";
-  card.setAttribute("data-dish", dish.keyword); // требование лабы ✅
+  card.setAttribute("data-dish", dish.keyword);
 
   card.innerHTML = `
     <img src="${dish.image}" alt="${dish.name}">
@@ -28,7 +28,7 @@ function renderCategory(category, gridId) {
 
   const items = DISHES
     .filter(d => d.category === category)
-    .sort(sortByName); // требование сортировки ✅
+    .sort(sortByName);
 
   items.forEach(dish => {
     grid.appendChild(createDishCard(dish));

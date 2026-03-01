@@ -37,7 +37,6 @@ function renderCategory(category, gridId, kindFilter = null) {
 
   items.forEach(dish => grid.appendChild(createDishCard(dish)));
 
-  // подсветка выбранных после перерендера (важно для фильтров)
   if (typeof updateSelectedCardsUI === "function") {
     updateSelectedCardsUI();
   }

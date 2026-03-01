@@ -36,7 +36,6 @@ function renderCategory(category, gridId, kindFilter = null) {
 
   items.forEach(dish => grid.appendChild(createDishCard(dish)));
 
-  // если у тебя есть подсветка выбранных карточек — синхронизируем после перерендера
   if (typeof updateSelectedCardsUI === "function") {
     updateSelectedCardsUI();
   }
@@ -51,7 +50,6 @@ function renderAll(activeFilters) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // filters state lives in filters.js, но если вдруг он еще не загружен:
   if (window.ACTIVE_FILTERS) {
     renderAll(window.ACTIVE_FILTERS);
   } else {

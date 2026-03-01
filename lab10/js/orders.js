@@ -1,5 +1,3 @@
-// js/orders.js
-
 function toast(message, type = "success") {
   const root = document.getElementById("toastRoot");
   if (!root) return;
@@ -53,8 +51,6 @@ function deliveryLabel(order) {
   }
   return "Как можно скорее (с 7:00 до 23:00)";
 }
-
-/* ===== Modal helpers ===== */
 
 function closeModal() {
   const root = document.getElementById("modalRoot");
@@ -117,8 +113,6 @@ function openModal({ title, bodyNode, actions }) {
   root.appendChild(overlay);
 }
 
-/* ===== Validation ===== */
-
 function minutesFromHHMM(hhmm) {
   const [h, m] = String(hhmm || "").split(":").map(Number);
   if (!Number.isFinite(h) || !Number.isFinite(m)) return null;
@@ -149,8 +143,6 @@ function validateEditForm(data) {
 
   return null;
 }
-
-/* ===== Render table ===== */
 
 let ORDERS_CACHE = [];
 
@@ -202,8 +194,6 @@ async function refreshOrders() {
   ORDERS_CACHE = orders;
   renderOrdersTable(orders);
 }
-
-/* ===== Modals ===== */
 
 function openViewModal(order) {
   const grid = document.createElement("div");
@@ -334,7 +324,6 @@ function openEditModal(order) {
     if (e.target && e.target.name === "ed_delivery_type") toggleTimeDisabled();
   });
 
-  // первичная настройка
   toggleTimeDisabled();
 
   openModal({
@@ -364,7 +353,6 @@ function openEditModal(order) {
             return;
           }
 
-          // PATCH только теми полями, которые реально менялись
           const patch = {};
           if (data.full_name !== order.full_name) patch.full_name = data.full_name;
           if (data.email !== order.email) patch.email = data.email;
@@ -372,7 +360,6 @@ function openEditModal(order) {
           if (data.delivery_address !== order.delivery_address) patch.delivery_address = data.delivery_address;
           if (data.delivery_type !== order.delivery_type) patch.delivery_type = data.delivery_type;
 
-          // delivery_time сравниваем аккуратно: null vs ""
           const oldTime = order.delivery_time || null;
           const newTime = data.delivery_time || null;
           if (newTime !== oldTime) patch.delivery_time = newTime;
@@ -398,8 +385,6 @@ function openEditModal(order) {
     ]
   });
 }
-
-/* ===== Events ===== */
 
 function findOrderInCache(id) {
   return ORDERS_CACHE.find(o => Number(o.id) === Number(id)) || null;
@@ -427,7 +412,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const table = document.getElementById("ordersTable");
   if (table) table.addEventListener("click", onTableClick);
 
-  // ждём, пока api.js подгрузит блюда (window.DISHES), чтобы мы могли показать названия
   document.addEventListener("dishesLoaded", () => {
     refreshOrders().catch(err => {
       console.error(err);
@@ -437,7 +421,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // на всякий: если блюда уже успели загрузиться
   if (window.DISHES && window.DISHES.length) {
     refreshOrders().catch(err => toast(err.message, "error"));
   }

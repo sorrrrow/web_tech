@@ -1,0 +1,29 @@
+cat > .gitignore << 'EOF'
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE / Editors
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Node / JS tooling (если вдруг появится)
+node_modules/
+dist/
+build/
+.cache/
+
+# Env files
+.env
+.env.*
+EOF

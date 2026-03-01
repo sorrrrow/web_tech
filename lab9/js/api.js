@@ -1,19 +1,13 @@
-// js/api.js
-
-// ✅ БАЗОВЫЙ URL API (для Netlify/GitHub Pages по ТЗ)
 const API_BASE_URL = "https://edu.std-900.ist.mospolytech.ru";
 
-// ✅ ВСТАВЬ СЮДА СВОЙ API KEY (UUIDv4)
 const API_KEY = "a0f8c61f-9dc3-46d4-ab60-dd9410ec179b";
 
-// соберём URL с api_key всегда в query
 function withApiKey(url) {
   const u = new URL(url);
   u.searchParams.set("api_key", API_KEY);
   return u.toString();
 }
 
-// приводим категории от API к тем, что ждёт твой сайт
 function normalizeCategory(apiCategory) {
   const map = {
     "soup": "soup",
@@ -54,7 +48,6 @@ async function apiCreateOrder(orderPayload) {
     body: JSON.stringify(orderPayload),
   });
 
-  // сервер может вернуть JSON с error
   const text = await res.text();
   let data = null;
   try { data = text ? JSON.parse(text) : null; } catch (e) {}
@@ -66,8 +59,6 @@ async function apiCreateOrder(orderPayload) {
 
   return data;
 }
-
-// ===== ЛР9: Orders API =====
 
 async function apiGetOrders() {
   const url = withApiKey(`${API_BASE_URL}/labs/api/orders`);
@@ -139,7 +130,6 @@ async function apiDeleteOrder(orderId) {
   return data;
 }
 
-// грузим блюда при старте (как в ЛР7)
 async function loadDishes() {
   try {
     const dishes = await apiGetDishes();
@@ -161,7 +151,6 @@ async function loadDishes() {
       renderAll(window.ACTIVE_FILTERS);
     }
 
-    // ✅ важно для ЛР8: после загрузки блюд применяем выбор из localStorage
     if (typeof restoreSelectionFromStorage === "function") {
       restoreSelectionFromStorage();
     }

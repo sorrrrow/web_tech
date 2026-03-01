@@ -21,7 +21,6 @@ function handleFilterClick(e) {
   const category = filtersBlock.getAttribute("data-filters-for");
   const kind = btn.getAttribute("data-kind");
 
-  // повторный клик по активному фильтру = снять фильтр
   const isAlreadyActive = window.ACTIVE_FILTERS[category] === kind;
 
   clearActiveButtons(category);
@@ -33,7 +32,6 @@ function handleFilterClick(e) {
     btn.classList.add("active");
   }
 
-  // перерисовать ВСЕ категории, чтобы не ломать остальной функционал
   if (typeof renderAll === "function") {
     renderAll(window.ACTIVE_FILTERS);
   }

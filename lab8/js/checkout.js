@@ -87,12 +87,10 @@ function buildOrderPayloadFromForm(form, order) {
   const deliveryType = fd.get("delivery_type");
   const deliveryTime = fd.get("delivery_time");
 
-  // если by_time — время обязано быть
   if (deliveryType === "by_time" && (!deliveryTime || String(deliveryTime).trim() === "")) {
     throw new Error("Укажите время доставки");
   }
 
-  // drink_id по ТЗ обязательный, но мы контролим через combo
   const payload = {
     full_name: String(fd.get("full_name") || ""),
     email: String(fd.get("email") || ""),
@@ -116,7 +114,6 @@ function buildOrderPayloadFromForm(form, order) {
 async function initCheckout() {
   const order = loadOrderFromStorage();
 
-  // подгружаем все блюда одним запросом, чтобы не дергать 100 раз
   const dishes = await apiGetDishes();
   dishesById = new Map(dishes.map(d => [Number(d.id), d]));
 
@@ -140,7 +137,6 @@ async function initCheckout() {
 
     const current = loadOrderFromStorage();
 
-    // проверка комбо
     if (!isComboValid(current)) {
       const msg = getComboErrorMessage(current) || "Состав заказа не соответствует доступным комбо";
       alert(msg);

@@ -44,7 +44,6 @@ function updateOrderUI() {
 
   const anySelected = !!(selected.soup || selected.main || selected.drink);
 
-  // если ничего не выбрано
   if (!anySelected) {
     emptyText.classList.remove("is-hidden");
     soupRow.classList.add("is-hidden");
@@ -57,25 +56,21 @@ function updateOrderUI() {
 
   emptyText.classList.add("is-hidden");
 
-  // суп
   soupRow.classList.remove("is-hidden");
   soupValue.textContent = selected.soup
     ? `${selected.soup.name} ${selected.soup.price}₽`
     : "Блюдо не выбрано";
 
-  // главное
   mainRow.classList.remove("is-hidden");
   mainValue.textContent = selected.main
     ? `${selected.main.name} ${selected.main.price}₽`
     : "Блюдо не выбрано";
 
-  // напиток
   drinkRow.classList.remove("is-hidden");
   drinkValue.textContent = selected.drink
     ? `${selected.drink.name} ${selected.drink.price}₽`
     : "Напиток не выбран";
 
-  // стоимость (показываем только если хоть что-то выбрано)
   const total = calcTotal();
   totalBlock.classList.toggle("is-hidden", total === 0);
   totalValue.textContent = `${total}₽`;
@@ -84,11 +79,9 @@ function updateOrderUI() {
 }
 
 function updateSelectedCardsUI() {
-  // Снимаем подсветку со всех
   document.querySelectorAll(".dish-card.is-selected")
     .forEach(card => card.classList.remove("is-selected"));
 
-  // Вешаем подсветку на выбранные (по keyword)
   ["soup", "main", "drink"].forEach(cat => {
     const dish = selected[cat];
     if (!dish) return;
@@ -106,14 +99,12 @@ function handleDishClick(e) {
   const dish = getDishByKeyword(keyword);
   if (!dish) return;
 
-  // записываем выбор в нужную категорию
   selected[dish.category] = dish;
 
   updateOrderUI();
   updateSelectedCardsUI();
 }
 
-// reset формы должен чистить и выбор
 function handleFormReset() {
   selected.soup = null;
   selected.main = null;
