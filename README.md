@@ -2,7 +2,7 @@
 
 Репозиторий с лабораторными работами по дисциплине «Основы веб-технологий».
 
-[Сайт](https://sorrrrow.github.io/web_tech/)
+Сайт (GitHub Pages): https://sorrrrow.github.io/web_tech/
 
 ## Структура
 - `index.html` — стартовая страница со ссылками на лабораторные
