@@ -2,14 +2,13 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Construct — доставка бизнес-ланчей</title>
 
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,82 +16,72 @@
 <header>
     <div class="header-container">
         <h1>Food Construct</h1>
-        <nav>
-            <a href="#">О нас</a>
-            <a href="#">Собрать ланч</a>
-            <a href="#">Заказы</a>
+
+        <nav class="site-nav">
+            <a id="active" href="#about">О нас</a>
+            <a href="../lab2/index.html">Собрать ланч</a>
+            <a href="#orders">Заказы</a>
             <a href="#contacts">Контакты</a>
         </nav>
     </div>
 </header>
 
-<main class="container">
-    <!-- О компании -->
-    <section class="about">
-        <h2>О нас</h2>
-        <img
-            src="main_photo.jpeg"
-            alt="Бизнес-ланчи Food Construct">
-        <p>
-            Food Construct — сервис доставки бизнес-ланчей в Москве.
-            Мы готовим вкусные и сытные блюда и доставляем их точно к назначенному времени
-            в любую точку города.
-        </p>
-    </section>
+<main class="site-main">
+    <div class="container">
+        <section class="about" id="about">
+            <h2>О нас</h2>
+            <p>
+                Food Construct — сервис доставки бизнес-ланчей. Собирайте обед как конструктор:
+                суп, главное блюдо и напиток — и всё это приедет к вам горячим и вовремя.
+            </p>
+            <img src="main_photo.jpeg" alt="Блюда Food Construct">
+        </section>
 
-    <!-- Преимущества -->
-    <section>
-        <h2>Почему выбирают нас</h2>
-        <ul class="advantages">
-            <li>Точная доставка без опозданий</li>
-            <li>Бесплатная и удобная упаковка</li>
-            <li>Работаем каждый день с 7:00 до 23:00</li>
-        </ul>
-    </section>
+        <section class="advantages">
+            <h2>Почему мы</h2>
+            <ul class="advantages-list">
+                <li>Доставка по расписанию</li>
+                <li>Свежие продукты</li>
+                <li>Понятный состав блюд</li>
+                <li>Можно собрать ланч под себя</li>
+            </ul>
+        </section>
 
-    <!-- Популярные блюда -->
-    <section>
-        <h2>Топ-5 популярных блюд</h2>
-        <table>
-            <tr>
-                <th>Название</th>
-                <th>Заказов в неделю</th>
-                <th>Цена</th>
-            </tr>
-            <tr>
-                <td>Лазанья</td>
-                <td>185</td>
-                <td>385 ₽</td>
-            </tr>
-            <tr>
-                <td>Том Ям с креветками</td>
-                <td>161</td>
-                <td>365 ₽</td>
-            </tr>
-            <tr>
-                <td>Норвежский суп</td>
-                <td>144</td>
-                <td>270 ₽</td>
-            </tr>
-            <tr>
-                <td>Жареная картошка с грибами</td>
-                <td>132</td>
-                <td>150 ₽</td>
-            </tr>
-            <tr>
-                <td>Куриные котлеты с пюре</td>
-                <td>128</td>
-                <td>225 ₽</td>
-            </tr>
-        </table>
-    </section>
+        <section class="menu" id="orders">
+            <h2>Топ блюд недели</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Блюдо</th>
+                        <th>Категория</th>
+                        <th>Цена</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Лазанья</td>
+                        <td>Главное</td>
+                        <td>385₽</td>
+                    </tr>
+                    <tr>
+                        <td>Гаспачо</td>
+                        <td>Суп</td>
+                        <td>195₽</td>
+                    </tr>
+                    <tr>
+                        <td>Апельсиновый сок</td>
+                        <td>Напиток</td>
+                        <td>120₽</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
 </main>
 
-<footer id="contacts">
-    <p>
-        Связаться с нами:
-        <a href="tel:+70000000000">+7 (000) 000-00-00</a>
-    </p>
+<footer class="site-footer" id="contacts">
+    <p>Позвонить нам <a href="tel:+70000000000">+7 (000) 000-00-00</a></p>
 </footer>
 
 </body>

@@ -1,0 +1,95 @@
+/* Минимум кастома: цвета и немного красоты.
+   Вся структура — через Bootstrap grid и компоненты. */
+
+/* 1) Шапка как на остальных страницах (чуть больше воздуха) */
+.site-header {
+  padding-top: 28px;
+  padding-bottom: 22px;
+}
+
+.site-header h1 {
+  font-size: 56px;      /* сделает как “большую” на других */
+  line-height: 1.05;
+  margin: 0;
+}
+
+/* навигация чуть ниже и “жирнее” */
+.site-nav {
+  margin-top: 10px;
+}
+
+.site-nav a {
+  font-size: 22px;
+}
+
+:root {
+  --fc-green: #2a5d3e;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Чтобы hero не лип к шапке и было “воздух” */
+.fc-hero .container {
+  padding-top: 2.5rem;
+}
+
+/* Hero */
+.fc-hero {
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(255, 255, 255, 0.18), transparent 60%),
+              linear-gradient(135deg, #1f4a33, var(--fc-green));
+}
+
+/* 2) Белый hero */
+.fc-hero-light {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* убираем “стеклянность” у hero-карточки на белом фоне */
+.fc-hero-card {
+  background: #ffffff;
+  border: 1px solid rgba(42, 93, 62, 0.18);
+}
+
+/* плашки в hero на белом */
+.fc-pill {
+  color: #1f1f1f;
+  background: rgba(42, 93, 62, 0.10);
+  border: 1px solid rgba(42, 93, 62, 0.18);
+}
+
+/* 3) Второй блок — зелёный */
+.fc-features-dark {
+  background: #2a5d3e;
+  color: #fff;
+}
+
+.fc-features-dark .text-muted {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* карточки на зелёном фоне — белые */
+.fc-features-dark .card {
+  border: 0;
+}
+
+.fc-features-dark .card-body {
+  color: #1f1f1f;
+}
+
+.fc-cta {
+  background: #f7f7f7;
+}
+
+/* Чуть “фирменности” для primary-кнопки (Bootstrap) */
+.btn-primary {
+  background-color: var(--fc-green);
+  border-color: var(--fc-green);
+}
+
+.btn-primary:hover {
+  background-color: #244f35;
+  border-color: #244f35;
+}

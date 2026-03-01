@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Construct — лендинг</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Твои базовые стили (шапка/меню/общий стиль сайта) -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Стили лендинга (докрашиваем под ТЗ) -->
+  <link rel="stylesheet" href="landing.css">
+</head>
+
+<body>
+
+  <!-- ТВОЯ ШАПКА (как на остальных страницах) -->
+  <header class="site-header">
+    <h1>Food Construct</h1>
+    <nav class="site-nav">
+      <a id="active" href="landing.html">Лендинг</a>
+      <a href="index.html">О нас</a>
+      <a href="lunch.html">Собрать ланч</a>
+      <a href="order.html">Оформить заказ</a>
+      <a href="orders.html">Заказы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </header>
+
+  <!-- HERO (1-й блок БЕЛЫЙ) -->
+  <section class="fc-hero-light">
+    <div class="container py-5">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-lg-6">
+          <p class="text-uppercase text-muted fw-semibold mb-2">Доставка бизнес-ланчей</p>
+
+          <h1 class="display-5 fw-bold mb-3">
+            Собери ланч как конструктор 🍲🥗🥤
+          </h1>
+
+          <p class="lead text-muted mb-4">
+            Food Construct — быстрый и понятный способ собрать обед под себя: суп, главное, салат/стартер, напиток и десерт.
+            Вкусно, аккуратно, без сюрпризов.
+          </p>
+
+          <div class="d-flex flex-column flex-sm-row gap-2">
+            <a href="lunch.html" class="btn btn-primary btn-lg px-4">Собрать ланч</a>
+            <a href="#features" class="btn btn-outline-secondary btn-lg px-4">Почему мы</a>
+          </div>
+
+          <div class="mt-4 d-flex flex-wrap gap-3">
+            <div class="fc-pill">⏱ Доставка 7:00–23:00</div>
+            <div class="fc-pill">🥬 Свежие продукты</div>
+            <div class="fc-pill">💳 Оплата при оформлении</div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="fc-hero-card">
+            <img src="main_photo.jpeg" class="img-fluid rounded-4" alt="Блюда Food Construct">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES (2-й блок ЗЕЛЁНЫЙ) -->
+  <section id="features" class="py-5 fc-features-dark">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-12 col-lg-8">
+          <h2 class="fw-bold mb-2">Почему Food Construct — это удобно</h2>
+          <p class="text-muted mb-0">
+            Всё продумано так, чтобы ты выбрал вкусный ланч за пару минут и не играл в “угадай состав”.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <div class="fs-2 mb-2">🧩</div>
+              <h3 class="h5 fw-bold">Сборка комбо</h3>
+              <p class="text-muted mb-0">Выбирай категории — система подскажет, если набор невалиден.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <div class="fs-2 mb-2">📦</div>
+              <h3 class="h5 fw-bold">Аккуратная упаковка</h3>
+              <p class="text-muted mb-0">Еда приезжает в нормальном виде, а не “арт-объектом”.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <div class="fs-2 mb-2">🥗</div>
+              <h3 class="h5 fw-bold">Понятный состав</h3>
+              <p class="text-muted mb-0">Никаких “секретных ингредиентов”, всё прозрачно.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <div class="fs-2 mb-2">⚡</div>
+              <h3 class="h5 fw-bold">Быстро</h3>
+              <p class="text-muted mb-0">Сбор ланча занимает меньше времени, чем выбрать сериал.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA (можно оставить светлым — так приятнее глазам) -->
+  <section class="py-5 fc-cta">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-lg-8">
+          <h2 class="fw-bold mb-2">Готов собрать свой идеальный ланч?</h2>
+          <p class="mb-0 text-muted">
+            Перейди на страницу “Собрать ланч” и выбери блюда. Если что — подсказки помогут ✨
+          </p>
+        </div>
+        <div class="col-12 col-lg-4 text-lg-end">
+          <a href="lunch.html" class="btn btn-primary btn-lg px-4">Перейти к сборке →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTS + FORM -->
+  <section id="contacts" class="py-5">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-12 col-lg-8">
+          <h2 class="fw-bold mb-2">Обратная связь и контакты</h2>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-lg-5">
+          <div class="p-4 rounded-4 border bg-light h-100">
+            <h3 class="h5 fw-bold mb-3">Контакты</h3>
+
+            <div class="mb-3">
+              <div class="text-muted small">Телефон</div>
+              <a class="link-dark fw-semibold text-decoration-none" href="tel:+70000000000">+7 (000) 000-00-00</a>
+            </div>
+
+            <div class="mb-3">
+              <div class="text-muted small">Email</div>
+              <a class="link-dark fw-semibold text-decoration-none"
+                href="mailto:info@foodconstruct.example">info@foodconstruct.example</a>
+            </div>
+
+            <div class="mb-3">
+              <div class="text-muted small">График доставки</div>
+              <div class="fw-semibold">Каждый день, 07:00–23:00</div>
+            </div>
+
+            <div class="mb-0">
+              <div class="text-muted small">Адрес</div>
+              <div class="fw-semibold">Москва</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-7">
+          <div class="p-4 rounded-4 border h-100">
+            <h3 class="h5 fw-bold mb-3">Написать нам</h3>
+
+            <div id="formAlert" class="alert alert-success d-none" role="alert">
+              Спасибо! Мы получили сообщение ✅
+            </div>
+
+            <form id="feedbackForm" class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label for="fbName" class="form-label">Имя</label>
+                  <input id="fbName" class="form-control" type="text" placeholder="Например: Аня" required>
+                  <div class="invalid-feedback">Укажите имя.</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="fbEmail" class="form-label">Email</label>
+                  <input id="fbEmail" class="form-control" type="email" placeholder="name@example.com" required>
+                  <div class="invalid-feedback">Укажите корректный email.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="fbTopic" class="form-label">Тема</label>
+                  <select id="fbTopic" class="form-select" required>
+                    <option value="" selected disabled>Выберите тему</option>
+                    <option>Вопрос по заказу</option>
+                    <option>Сотрудничество</option>
+                    <option>Отзыв</option>
+                    <option>Другое</option>
+                  </select>
+                  <div class="invalid-feedback">Выберите тему.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="fbMsg" class="form-label">Сообщение</label>
+                  <textarea id="fbMsg" class="form-control" rows="5" placeholder="Напишите сообщение…" required></textarea>
+                  <div class="invalid-feedback">Напишите сообщение.</div>
+                </div>
+
+                <div class="col-12 d-flex flex-column flex-sm-row gap-2 justify-content-end">
+                  <button class="btn btn-outline-secondary" type="reset">Очистить</button>
+                  <button class="btn btn-primary" type="submit">Отправить</button>
+                </div>
+              </div>
+            </form>
+
+            <p class="text-muted small mt-3 mb-0">
+              *Сообщение не отправляется на сервер (в рамках лабораторной работы). Реализована клиентская валидация и UX.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 border-top">
+    <div class="container d-flex flex-column flex-sm-row gap-2 justify-content-between align-items-sm-center">
+      <div class="text-muted">© Food Construct, учебный проект</div>
+      <div class="d-flex gap-3">
+        <a class="text-decoration-none" href="lunch.html">Собрать ланч</a>
+        <a class="text-decoration-none" href="#" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Наверх ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <script>
+    // Bootstrap validation + "Спасибо" alert
+    (() => {
+      const form = document.getElementById("feedbackForm");
+      const alertBox = document.getElementById("formAlert");
+      if (!form) return;
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (!form.checkValidity()) {
+          form.classList.add("was-validated");
+          return;
+        }
+
+        form.reset();
+        form.classList.remove("was-validated");
+
+        if (alertBox) {
+          alertBox.classList.remove("d-none");
+          setTimeout(() => alertBox.classList.add("d-none"), 3000);
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

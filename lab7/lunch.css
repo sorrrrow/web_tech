@@ -1,0 +1,386 @@
+/* карточки блюд */
+.lunch-section h2 {
+    margin: 35px 0 15px;
+    font-size: 22px;
+}
+
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* карточка блюда */
+.dish-card {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border-radius: 35px;
+    background: #fff;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    border: 2px solid transparent;
+}
+
+.dish-card img {
+    width: 100%;
+    border-radius: 35px;
+    display: block;
+}
+
+.dish-price {
+    font-size: 22px;
+    margin: 18px 0 4px;
+    font-weight: 700;
+}
+
+.dish-title {
+    font-size: 18px;
+    margin: 0 0 8px;
+    font-weight: 600;
+}
+
+.dish-bottom {
+    margin-top: auto;
+}
+
+.dish-weight {
+    color: #777;
+    margin: 0 0 12px;
+}
+
+.dish-btn {
+    background: #f1eee9;
+    border: none;
+    margin-top: 8px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+}
+
+.dish-card:hover {
+    border: 2px solid tomato;
+}
+
+.dish-card:hover .dish-btn {
+    background: tomato;
+    color: #fff;
+}
+
+/* форма */
+.order-form-section {
+    margin-top: 30px;
+}
+
+.form-title {
+    text-align: center;
+    margin: 50px 0 25px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.order-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: start;
+}
+
+.form-subtitle {
+    margin: 0 0 15px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-col label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 12px 0 6px;
+}
+
+.form-col input,
+.form-col textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid #cfcfcf;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+}
+
+.form-col textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0 6px;
+}
+
+.checkbox-row input {
+    width: auto;
+}
+
+.checkbox-row label {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.form-note {
+    margin: 10px 0 6px;
+    font-size: 11px;
+    color: #444;
+}
+
+.radio-title {
+    margin: 12px 0 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.radio-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+}
+
+.radio-row input {
+    width: auto;
+}
+
+.radio-row label {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.btn-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+.btn {
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: 1px solid #111;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+    background: #fff;
+}
+
+.btn:hover {
+    border-color: tomato;
+    color: tomato;
+}
+
+/* “Ваш заказ” */
+.order-preview {
+    margin-bottom: 14px;
+}
+
+.order-empty {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.order-row {
+    margin-top: 18px;
+}
+
+.order-cat {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.order-value {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.order-total {
+    margin-top: 26px;
+}
+
+.order-total-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.order-total-value {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.is-hidden {
+    display: none;
+}
+
+/* Подсветка выбранной карточки */
+.dish-card.is-selected {
+    border: 2px solid tomato;
+}
+
+.dish-card.is-selected .dish-btn {
+    background: tomato;
+    color: #fff;
+}
+
+/* ===== Комбо ===== */
+.combo-section {
+    margin: 25px 0 35px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 20px;
+}
+
+.combo-title {
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+.combo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.combo-card {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    padding: 18px 14px;
+    border-radius: 18px;
+    background: #fff;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.08));
+}
+
+.combo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    min-width: 90px;
+}
+
+.combo-img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+/* transform при наведении */
+.combo-img:hover {
+    transform: translateY(-6px) scale(1.06);
+}
+
+.combo-caption {
+    margin: 0;
+    font-weight: 600;
+}
+
+.combo-subcaption {
+    margin: 0;
+    font-size: calc(1em - 2px);
+    color: #777;
+    text-align: center;
+}
+
+.combo-dessert {
+    justify-content: center;
+}
+
+/* адаптивность (чтоб комбо тоже красиво жило) */
+@media (max-width: 800px) {
+    .combo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .combo-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Уведомление (модалка) ===== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal {
+    width: min(520px, 92vw);
+    background: #fff;
+    border-radius: 18px;
+    padding: 28px 24px;
+    text-align: center;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+}
+
+.modal-text {
+    margin: 0 0 18px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.modal-btn {
+    border: 2px solid #111;
+    background: #fff;
+    padding: 10px 26px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.modal-btn:hover {
+    background: #111;
+    color: #fff;
+}
+
+/* адаптив */
+@media (max-width: 800px) {
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .dishes-grid {
+        grid-template-columns: 1fr;
+    }
+    .order-form {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .form-title,
+    .lunch-section h2 {
+        text-align: center;
+    }
+}
